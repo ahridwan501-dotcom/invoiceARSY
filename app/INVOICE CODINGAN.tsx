@@ -40,17 +40,17 @@ const [billTo,setBillTo] = useState("")
 const [invoiceNumber,setInvoiceNumber] = useState("1")
 const [invoiceDate,setInvoiceDate] = useState("")
 
-const [items,setItems] = useState([
-{description:"",qty:1,price:0}
-])
-
-const [generated,setGenerated] = useState(false)
-
-const addItem=()=>{
-setItems([...items,{description:"",qty:1,price:0}])
+type Item = {
+  description: string
+  qty: number
+  price: number
 }
 
-const updateItem = (i:number, field:"description" | "qty" | "price", value:any)=>{
+const [items,setItems] = useState<Item[]>([
+  { description:"", qty:1, price:0 }
+])
+
+const updateItem = (i:number, field:keyof Item, value:any)=>{
 const newItems=[...items]
 newItems[i][field]=value
 setItems(newItems)
