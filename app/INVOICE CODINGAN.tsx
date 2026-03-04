@@ -1,16 +1,12 @@
 "use client";
 import { useState } from "react";
 
-"use client";
-import { useState } from "react";
-
 const formatRupiah = (value: any) => {
   const number = Number(value || 0);
   return number.toLocaleString("id-ID");
 };
 
 const parseNumber = (value: any) => {
-  // hapus semua selain angka
   return value.replace(/[^\d]/g, "");
 };
 
