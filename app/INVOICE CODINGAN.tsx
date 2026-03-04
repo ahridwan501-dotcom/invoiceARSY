@@ -10,10 +10,6 @@ const parseNumber = (value: any) => {
   return value.replace(/[^\d]/g, "");
 };
 
-const parseNumber = (value) => {
-  // hapus semua selain angka
-  return value.replace(/[^\d]/g, "");
-};
 export default function Home(){
   const customerHistory = [
 "ONIISAN GALAXY",
