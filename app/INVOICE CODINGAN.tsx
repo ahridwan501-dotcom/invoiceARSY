@@ -40,6 +40,8 @@ const [billTo,setBillTo] = useState("")
 const [invoiceNumber,setInvoiceNumber] = useState("1")
 const [invoiceDate,setInvoiceDate] = useState("")
 
+const [generated,setGenerated] = useState(false)
+
 type Item = {
   description: string
   qty: number
@@ -50,10 +52,22 @@ const [items,setItems] = useState<Item[]>([
   { description:"", qty:1, price:0 }
 ])
 
-const updateItem = (i:number, field:keyof Item, value:any)=>{
-const newItems=[...items]
-newItems[i][field]=value
-setItems(newItems)
+const updateItem = (i:number, field:keyof Item, value:any) => {
+  const newItems = [...items]
+
+  if (field === "description") {
+    newItems[i].description = value
+  }
+
+  if (field === "qty") {
+    newItems[i].qty = Number(value)
+  }
+
+  if (field === "price") {
+    newItems[i].price = Number(value)
+  }
+
+  setItems(newItems)
 }
 
 const subtotal=items.reduce((acc,item)=>acc+(item.qty*item.price),0)
