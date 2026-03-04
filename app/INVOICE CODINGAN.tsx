@@ -50,7 +50,7 @@ const addItem=()=>{
 setItems([...items,{description:"",qty:1,price:0}])
 }
 
-const updateItem=(i,field,value)=>{
+const updateItem=(i:number, field:string, value:any)=>{
 const newItems=[...items]
 newItems[i][field]=value
 setItems(newItems)
