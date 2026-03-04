@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const formatRupiah = (value) => {
+const formatRupiah = (value: number | string) => {
   const number = Number(value || 0);
   return number.toLocaleString("id-ID");
 };
